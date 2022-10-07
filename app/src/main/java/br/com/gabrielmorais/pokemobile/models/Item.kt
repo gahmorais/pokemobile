@@ -1,3 +1,3 @@
 package br.com.gabrielmorais.pokemobile.models
 
-data class Item(val name: String, val url: String)
+data class Item(val name: String, val url: String, var imgUrl:String)

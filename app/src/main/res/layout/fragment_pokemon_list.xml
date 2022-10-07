@@ -17,15 +17,16 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/pokemonList"
             android:layout_width="match_parent"
-            android:layout_height="561dp"
-            android:layout_marginTop="168dp"
-            app:listData="@{viewModel.pokemonList}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/list_view_item"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:spanCount="2"
+            tools:itemCount="16"
+
+            tools:listitem="@layout/list_view_item" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

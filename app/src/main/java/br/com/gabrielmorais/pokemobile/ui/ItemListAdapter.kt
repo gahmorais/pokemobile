@@ -2,14 +2,17 @@ package br.com.gabrielmorais.pokemobile.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import br.com.gabrielmorais.pokemobile.databinding.ListViewItemBinding
 import br.com.gabrielmorais.pokemobile.models.Item
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class ItemListAdapter(private val clickListener: ItemListener) :
-    ListAdapter<Item, ItemListAdapter.ItemViewHolder>(DiffCallback) {
+    PagingDataAdapter<Item, ItemListAdapter.ItemViewHolder>(DiffCallback) {
     class ItemViewHolder(private var binding: ListViewItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(clickListener: ItemListener, item: Item) {
@@ -36,7 +39,7 @@ class ItemListAdapter(private val clickListener: ItemListener) :
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(clickListener, item)
+        holder.bind(clickListener, item!!)
     }
 }
 

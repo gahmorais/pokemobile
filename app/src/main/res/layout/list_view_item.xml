@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="item"
             type="br.com.gabrielmorais.pokemobile.models.Item" />
@@ -21,18 +21,32 @@
         app:cardCornerRadius="4dp"
         app:cardElevation="4dp">
 
-        <TextView
-            android:id="@+id/item_name"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:padding="8dp"
-            android:text="@{item.name}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textSize="18sp"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:imgUrl="@{item.imgUrl}"
+                tools:srcCompat="@tools:sample/avatars" />
 
-            />
+            <TextView
+                android:id="@+id/item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="end"
+                android:hint="TESTE"
+                android:maxLines="1"
+                android:padding="15dp"
+                android:text="@{item.name}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="28sp"/>
+        </LinearLayout>
+
 
     </com.google.android.material.card.MaterialCardView>
 
